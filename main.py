@@ -26,11 +26,11 @@ def buttons (message):
     print('123')
 
     global markup2
-    if message.text == 'Получить Шмотку':
-        bot.send_message(message.chat.id, 'Получить Шмотку')
+    if message.text == '🧟Получить Шмотку':
+        bot.send_message(message.chat.id, '🧟Получить Шмотку')
 
-    elif message.text == 'Мой Гардероб':
-        bot.send_message(message.chat.id, 'Мой Гардероб')
+    elif message.text == '👔Мой Гардероб':
+        bot.send_message(message.chat.id, '👔Мой Гардероб')
 
     elif message.text == '🛍️Paris':
 
@@ -48,6 +48,17 @@ def paris():
     markup2.add(telebot.types.InlineKeyboardButton('🎭Trade', callback_data='🎭Trade'))
     markup2.add(telebot.types.InlineKeyboardButton('🛒Fashion Shop', callback_data='🛒Fashion Shop'))
     markup2.add(telebot.types.InlineKeyboardButton('🙋🏻‍♂️Реферальная программа', callback_data='🙋🏻‍♂️Реферальная программа'))
+
+@bot.callback_query_handlers (func=lambda callback: True)
+def Avatar(callback):
+    markup = telebot.types.InlineKeyboardButton()
+    markupAVATAR1 = telebot.types.InlineKeyboardButton('Сменить кофту')
+    markupAVATAR2 = telebot.types.InlineKeyboardButton('Сменить штаны')
+    markupAVATAR3 = telebot.types.InlineKeyboardButton('Сменить обувь')
+    markupAVATAR4 = telebot.types.InlineKeyboardButton('Снять все')
+    photo = open('photo_2024-03-11_18-34-01.jpg' , 'rb')
+    if callback.data =='👔Avatar':
+        bot.send_photo(message.chat.id , photo , reply_markup=markupAVATAR)
 
 
 
